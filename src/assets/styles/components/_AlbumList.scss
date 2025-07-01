@@ -1,0 +1,17 @@
+.album-list {
+  ul {
+    list-style: none;
+  }
+
+  .album-item {
+    cursor: pointer;
+  }
+}
+.album-header{
+  display: flex;
+  align-items: center; 
+  gap: 24px; 
+  cursor: pointer;
+  margin-bottom: 48px;
+  margin-left: 56px;
+}

@@ -1,0 +1,66 @@
+.favorite-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+
+}
+
+.favorite-image {
+
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.favorites-page {
+  margin-top: 48px; ;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 150px); 
+  gap: 42px; 
+  justify-content: center;
+}
+
+.empty-state {
+  display: flex;
+  flex: 1; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  text-align: center;
+}
+
+.empty-icon {
+  max-width: 100%;
+  height: auto;
+}
+// Для адаптивности на мобильных устройствах 
+@media (max-width: 600px) {
+  .favorites-grid {
+    grid-template-columns: repeat(2, 150px);
+    gap: 24px;
+  }
+    .empty-icon {
+    width: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .favorites-grid {
+    grid-template-columns: 150px;
+  }
+  
+  .empty-icon {
+    width: 200px;
+  }
+}

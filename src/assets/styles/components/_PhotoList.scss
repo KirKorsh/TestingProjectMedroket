@@ -1,0 +1,43 @@
+.photo-list {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    gap: 42px;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+    margin:0px;
+    margin-bottom: 48px;
+  }
+
+  .photo-item {
+    width: 150px;
+    height: 150px;
+    position: relative;
+
+    .photo-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      
+    }
+    img{
+      border-radius: 4px;
+    }
+  }
+
+  .tooltip {
+    position: fixed;
+    width: 150px;
+    background-color: rgba(0,0,0, 0.69);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    pointer-events: none;
+    white-space: normal;
+    z-index: 2000;
+    text-align: left;
+    transform: translate(-50%, 15px);
+  }
+}

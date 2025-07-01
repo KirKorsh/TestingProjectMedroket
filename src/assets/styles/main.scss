@@ -1,0 +1,134 @@
+@use './variables' as *;
+
+@use './components/TabButtons';
+@use './components/AlbumList';
+@use './components/PhotoList';
+@use './components/UserList';
+@use './components/CatalogPage';
+@use './components/PhotoModal';
+@use './components/FavoritesPage';
+@use './components/PhotoItem';
+@use './components/Preloader';
+@use './components/Errors';
+
+// Глобальные стили 
+html {
+  overflow-y: scroll; 
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  //чтобы не прыгал скроллбар
+  scrollbar-gutter: stable; 
+  overflow-x: hidden;
+}
+
+@supports (scrollbar-gutter: stable) {
+  html {
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+}
+
+h1{
+  font-size: 22px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+h2 {
+    font-size: 18px;        
+    font-weight: normal;
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+  min-height: 100vh;
+}
+
+
+.app {
+  font-family: 'Roboto', sans-serif;
+  width: 100%; 
+  max-width: 744px;
+  margin: 0 auto;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  color: $text-color; 
+}
+
+.content {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.content-wrapper {
+  margin-top: 24px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// Стили состояний загрузки и ошибок
+.loading-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  min-height: 200px;
+}
+
+// Анимации для плавного появления
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-list, .album-list, .photo-list {
+  animation: fadeIn 0.3s ease-out;
+}
+.user-header,
+.album-header,
+.photo-item-container {
+  &:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $main-blue-color;
+    outline-offset: 2px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+.photo-item-container:focus-visible {
+  transform: scale(1.03);
+  transition: transform 0.2s;
+}
